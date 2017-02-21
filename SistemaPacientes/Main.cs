@@ -16,5 +16,21 @@ namespace SistemaPacientes
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddPatient addPatientForm = new AddPatient();
+            addPatientForm.refToMain = this;
+            addPatientForm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ListPatients listPatientsForm = new ListPatients();
+            listPatientsForm.refToMain = this;
+            listPatientsForm.Show();
+            this.Hide();
+        }
     }
 }
