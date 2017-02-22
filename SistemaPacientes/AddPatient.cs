@@ -31,6 +31,7 @@ namespace SistemaPacientes
 
         //Used to store photo image as bytes
         public byte[] filebytes;
+        public int genderInt;
 
         private void AddPatient_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -47,6 +48,8 @@ namespace SistemaPacientes
             InitializeComponent();
             pressedBack = false;
             filebytes = null;
+            genderInt = 1;
+            maleRadio.Checked = true;
             addNewDisease.Visible = false;
 
             connectionString = ConfigurationManager.ConnectionStrings["SistemaPacientes.Properties.Settings.DatabaseConnectionString"].ConnectionString;
@@ -63,6 +66,7 @@ namespace SistemaPacientes
                 }
             }
             listView1.View = View.List;
+            pictureBox1.Image = Properties.Resources.NoImage;
 
         }
 
@@ -130,6 +134,8 @@ namespace SistemaPacientes
             {
                 filebytes = File.ReadAllBytes(openFile.FileName);
                 photoLabel.Text = "Se seleccionó el archivo " + openFile.SafeFileName;
+                MemoryStream ms = new MemoryStream(filebytes);
+                pictureBox1.Image = Image.FromStream(ms);
             }
         }
 
@@ -137,6 +143,7 @@ namespace SistemaPacientes
         {
             filebytes = null;
             photoLabel.Text = "";
+            pictureBox1.Image = Properties.Resources.NoImage;
         }
 
         private void createPatient_Click(object sender, EventArgs e)
@@ -155,7 +162,7 @@ namespace SistemaPacientes
                     comm.Parameters.AddWithValue("@val1", textBox1.Text);
                     comm.Parameters.AddWithValue("@val2", textBox2.Text);
                     comm.Parameters.AddWithValue("@val3", textBox3.Text);
-                    comm.Parameters.AddWithValue("@val4", textBox4.Text);
+                    comm.Parameters.AddWithValue("@val4", genderInt);
                     //If no photo selected, add db null
                     if (filebytes == null)
                     {
@@ -215,7 +222,9 @@ namespace SistemaPacientes
                     textBox1.Text = "";
                     textBox2.Text = "";
                     textBox3.Text = "";
-                    textBox4.Text = "";
+                    genderInt = 1;
+                    maleRadio.Checked = true;
+                    femaleRadio.Checked = false;
                     textBox5.Text = "";
                     textBox6.Text = "";
                     textBox7.Text = "";
@@ -288,6 +297,16 @@ namespace SistemaPacientes
                     }
                 }
             }
+        }
+
+        private void maleRadio_Click(object sender, EventArgs e)
+        {
+            genderInt = 1;
+        }
+
+        private void femaleRadio_Click(object sender, EventArgs e)
+        {
+            genderInt = 2;
         }
     }
 }

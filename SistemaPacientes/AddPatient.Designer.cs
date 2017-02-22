@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -53,7 +53,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -74,10 +73,14 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.maleRadio = new System.Windows.Forms.RadioButton();
+            this.femaleRadio = new System.Windows.Forms.RadioButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -144,7 +147,7 @@
             // searchPhoto
             // 
             this.searchPhoto.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.searchPhoto.Location = new System.Drawing.Point(560, 1269);
+            this.searchPhoto.Location = new System.Drawing.Point(428, 1330);
             this.searchPhoto.Name = "searchPhoto";
             this.searchPhoto.Size = new System.Drawing.Size(234, 91);
             this.searchPhoto.TabIndex = 9;
@@ -155,7 +158,7 @@
             // photoLabel
             // 
             this.photoLabel.AutoSize = true;
-            this.photoLabel.Location = new System.Drawing.Point(884, 1293);
+            this.photoLabel.Location = new System.Drawing.Point(752, 1354);
             this.photoLabel.Name = "photoLabel";
             this.photoLabel.Size = new System.Drawing.Size(0, 32);
             this.photoLabel.TabIndex = 10;
@@ -163,7 +166,7 @@
             // removePhoto
             // 
             this.removePhoto.BackColor = System.Drawing.SystemColors.Control;
-            this.removePhoto.Location = new System.Drawing.Point(560, 1391);
+            this.removePhoto.Location = new System.Drawing.Point(428, 1452);
             this.removePhoto.Name = "removePhoto";
             this.removePhoto.Size = new System.Drawing.Size(234, 91);
             this.removePhoto.TabIndex = 11;
@@ -283,13 +286,6 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(481, 38);
             this.dateTimePicker2.TabIndex = 23;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(1429, 679);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(487, 38);
-            this.textBox4.TabIndex = 27;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -373,8 +369,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Location = new System.Drawing.Point(102, 200);
@@ -476,6 +472,39 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // maleRadio
+            // 
+            this.maleRadio.AutoSize = true;
+            this.maleRadio.Location = new System.Drawing.Point(1557, 597);
+            this.maleRadio.Name = "maleRadio";
+            this.maleRadio.Size = new System.Drawing.Size(181, 36);
+            this.maleRadio.TabIndex = 42;
+            this.maleRadio.TabStop = true;
+            this.maleRadio.Text = "Masculino";
+            this.maleRadio.UseVisualStyleBackColor = true;
+            this.maleRadio.Click += new System.EventHandler(this.maleRadio_Click);
+            // 
+            // femaleRadio
+            // 
+            this.femaleRadio.AutoSize = true;
+            this.femaleRadio.Location = new System.Drawing.Point(1559, 688);
+            this.femaleRadio.Name = "femaleRadio";
+            this.femaleRadio.Size = new System.Drawing.Size(179, 36);
+            this.femaleRadio.TabIndex = 43;
+            this.femaleRadio.TabStop = true;
+            this.femaleRadio.Text = "Femenino";
+            this.femaleRadio.UseVisualStyleBackColor = true;
+            this.femaleRadio.Click += new System.EventHandler(this.femaleRadio_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(734, 1401);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(365, 374);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 45;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -483,6 +512,9 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(3610, 2088);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.femaleRadio);
+            this.Controls.Add(this.maleRadio);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.createPatient);
             this.Controls.Add(this.label4);
@@ -491,7 +523,6 @@
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label11);
@@ -526,6 +557,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,7 +588,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label4;
@@ -577,5 +608,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.RadioButton maleRadio;
+        private System.Windows.Forms.RadioButton femaleRadio;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

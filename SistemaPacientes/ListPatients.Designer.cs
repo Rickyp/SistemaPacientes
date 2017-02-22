@@ -51,6 +51,7 @@
             this.diseaseDataGridView = new System.Windows.Forms.DataGridView();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.viewProfileBtn = new System.Windows.Forms.Button();
             this.patientDiseaseDataGridView = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.patientFilesButton = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.viewProfileBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsDataGridView)).BeginInit();
@@ -264,6 +264,16 @@
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
             // 
+            // viewProfileBtn
+            // 
+            this.viewProfileBtn.Location = new System.Drawing.Point(384, 1559);
+            this.viewProfileBtn.Name = "viewProfileBtn";
+            this.viewProfileBtn.Size = new System.Drawing.Size(225, 65);
+            this.viewProfileBtn.TabIndex = 49;
+            this.viewProfileBtn.Text = "Ver Perfil";
+            this.viewProfileBtn.UseVisualStyleBackColor = true;
+            this.viewProfileBtn.Click += new System.EventHandler(this.viewProfileBtn_Click);
+            // 
             // patientDiseaseDataGridView
             // 
             this.patientDiseaseDataGridView.AllowUserToAddRows = false;
@@ -350,15 +360,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
-            // 
-            // viewProfileBtn
-            // 
-            this.viewProfileBtn.Location = new System.Drawing.Point(384, 1559);
-            this.viewProfileBtn.Name = "viewProfileBtn";
-            this.viewProfileBtn.Size = new System.Drawing.Size(225, 65);
-            this.viewProfileBtn.TabIndex = 49;
-            this.viewProfileBtn.Text = "Ver Perfil";
-            this.viewProfileBtn.UseVisualStyleBackColor = true;
             // 
             // ListPatients
             // 

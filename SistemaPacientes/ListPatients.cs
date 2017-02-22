@@ -321,5 +321,13 @@ namespace SistemaPacientes
             patientDiseaseDataGridView.ClientSize = new Size(totalWidth, totalHeight);
             patientDiseaseDataGridView.ClearSelection();
         }
+
+        private void viewProfileBtn_Click(object sender, EventArgs e)
+        {
+            ViewProfile viewProfileForm = new ViewProfile(patientDataId);
+            viewProfileForm.refToListPatients = this;
+            viewProfileForm.Show();
+            this.Hide();
+        }
     }
 }
