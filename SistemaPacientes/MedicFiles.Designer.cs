@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.filesDataGridView = new System.Windows.Forms.DataGridView();
             this.fileSearchTextBox = new System.Windows.Forms.TextBox();
             this.returnBtn = new System.Windows.Forms.Button();
@@ -65,8 +65,8 @@
             // 
             this.filesDataGridView.AllowUserToAddRows = false;
             this.filesDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.filesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.filesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.filesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.filesDataGridView.Location = new System.Drawing.Point(934, 183);
             this.filesDataGridView.Name = "filesDataGridView";
@@ -259,18 +259,18 @@
             // 
             this.clinicRecordsDataGridView.AllowUserToAddRows = false;
             this.clinicRecordsDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clinicRecordsDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.clinicRecordsDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.clinicRecordsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.clinicRecordsDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.clinicRecordsDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.clinicRecordsDataGridView.Location = new System.Drawing.Point(1992, 183);
             this.clinicRecordsDataGridView.Name = "clinicRecordsDataGridView";
             this.clinicRecordsDataGridView.ReadOnly = true;
@@ -278,20 +278,20 @@
             this.clinicRecordsDataGridView.RowTemplate.Height = 40;
             this.clinicRecordsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.clinicRecordsDataGridView.Size = new System.Drawing.Size(240, 65);
-            this.clinicRecordsDataGridView.TabIndex = 50;
+            this.clinicRecordsDataGridView.TabIndex = 36;
             this.clinicRecordsDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.clinicRecordsDataGridView_DataBindingComplete);
             // 
             // clinicRecordTextBox
             // 
-            this.clinicRecordTextBox.Location = new System.Drawing.Point(1992, 1304);
+            this.clinicRecordTextBox.Location = new System.Drawing.Point(1992, 1416);
             this.clinicRecordTextBox.Multiline = true;
             this.clinicRecordTextBox.Name = "clinicRecordTextBox";
-            this.clinicRecordTextBox.Size = new System.Drawing.Size(1367, 542);
+            this.clinicRecordTextBox.Size = new System.Drawing.Size(1367, 430);
             this.clinicRecordTextBox.TabIndex = 51;
             // 
             // clinicRecordDatePicker
             // 
-            this.clinicRecordDatePicker.Location = new System.Drawing.Point(1992, 1197);
+            this.clinicRecordDatePicker.Location = new System.Drawing.Point(1992, 1330);
             this.clinicRecordDatePicker.Name = "clinicRecordDatePicker";
             this.clinicRecordDatePicker.Size = new System.Drawing.Size(463, 38);
             this.clinicRecordDatePicker.TabIndex = 52;
@@ -300,7 +300,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1982, 1087);
+            this.label6.Location = new System.Drawing.Point(1982, 1220);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(445, 58);
             this.label6.TabIndex = 53;

@@ -54,7 +54,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.BirthDateDp = new System.Windows.Forms.DateTimePicker();
-            this.GenderTb = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.BirthPlaceTb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -295,13 +294,6 @@
             this.BirthDateDp.Name = "BirthDateDp";
             this.BirthDateDp.Size = new System.Drawing.Size(481, 38);
             this.BirthDateDp.TabIndex = 23;
-            // 
-            // GenderTb
-            // 
-            this.GenderTb.Location = new System.Drawing.Point(1390, 553);
-            this.GenderTb.Name = "GenderTb";
-            this.GenderTb.Size = new System.Drawing.Size(487, 38);
-            this.GenderTb.TabIndex = 27;
             // 
             // label13
             // 
@@ -566,6 +558,7 @@
             this.maleRadio.TabStop = true;
             this.maleRadio.Text = "Masculino";
             this.maleRadio.UseVisualStyleBackColor = true;
+            this.maleRadio.Click += new System.EventHandler(this.maleRadio_Click);
             // 
             // femaleRadio
             // 
@@ -577,6 +570,7 @@
             this.femaleRadio.TabStop = true;
             this.femaleRadio.Text = "Femenino";
             this.femaleRadio.UseVisualStyleBackColor = true;
+            this.femaleRadio.Click += new System.EventHandler(this.femaleRadio_Click);
             // 
             // reestablishPhoto
             // 
@@ -618,7 +612,6 @@
             this.Controls.Add(this.InsuranceNumberTb);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.RecommendedByTb);
-            this.Controls.Add(this.GenderTb);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.BirthPlaceTb);
             this.Controls.Add(this.label11);
@@ -687,7 +680,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker BirthDateDp;
-        private System.Windows.Forms.TextBox GenderTb;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox BirthPlaceTb;
         private System.Windows.Forms.Label label4;

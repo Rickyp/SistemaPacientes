@@ -137,7 +137,7 @@ namespace SistemaPacientes
             clinicRecordsDataGridView.Columns[1].Width = 600;
             clinicRecordsDataGridView.Columns[0].Width = 120;
 
-            if (clinicRecordsDataGridView.Rows.GetRowsHeight(DataGridViewElementStates.None) + filesDataGridView.ColumnHeadersHeight + 3 < 300)
+            if (clinicRecordsDataGridView.Rows.GetRowsHeight(DataGridViewElementStates.None) + filesDataGridView.ColumnHeadersHeight + 3 < 350)
             {
                 totalHeight = clinicRecordsDataGridView.Rows.GetRowsHeight(DataGridViewElementStates.None) + filesDataGridView.ColumnHeadersHeight + 12;
                 totalWidth = clinicRecordsDataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.None) + 20;
@@ -145,7 +145,7 @@ namespace SistemaPacientes
             }
             else
             {
-                totalHeight = 300;
+                totalHeight = 350;
                 totalWidth = clinicRecordsDataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.None) + 20;
             }
 

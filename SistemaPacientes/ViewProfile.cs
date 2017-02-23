@@ -441,6 +441,14 @@ namespace SistemaPacientes
             }
         }
 
+        private void maleRadio_Click(object sender, EventArgs e)
+        {
+            genderInt = 1;
+        }
 
+        private void femaleRadio_Click(object sender, EventArgs e)
+        {
+            genderInt = 2;
+        }
     }
 }
