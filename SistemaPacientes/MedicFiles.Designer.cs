@@ -55,6 +55,7 @@
             this.clinicRecordDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.addClinicRecordBtn = new System.Windows.Forms.Button();
+            this.deleteClinicalRecordBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.filesDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -69,6 +70,7 @@
             this.filesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.filesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.filesDataGridView.Location = new System.Drawing.Point(934, 183);
+            this.filesDataGridView.MultiSelect = false;
             this.filesDataGridView.Name = "filesDataGridView";
             this.filesDataGridView.ReadOnly = true;
             this.filesDataGridView.RowHeadersVisible = false;
@@ -272,6 +274,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.clinicRecordsDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.clinicRecordsDataGridView.Location = new System.Drawing.Point(1992, 183);
+            this.clinicRecordsDataGridView.MultiSelect = false;
             this.clinicRecordsDataGridView.Name = "clinicRecordsDataGridView";
             this.clinicRecordsDataGridView.ReadOnly = true;
             this.clinicRecordsDataGridView.RowHeadersVisible = false;
@@ -279,6 +282,7 @@
             this.clinicRecordsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.clinicRecordsDataGridView.Size = new System.Drawing.Size(240, 65);
             this.clinicRecordsDataGridView.TabIndex = 36;
+            this.clinicRecordsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clinicRecordsDataGridView_CellClick);
             this.clinicRecordsDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.clinicRecordsDataGridView_DataBindingComplete);
             // 
             // clinicRecordTextBox
@@ -316,6 +320,16 @@
             this.addClinicRecordBtn.UseVisualStyleBackColor = true;
             this.addClinicRecordBtn.Click += new System.EventHandler(this.addClinicalRecordBtn_Click);
             // 
+            // deleteClinicalRecordBtn
+            // 
+            this.deleteClinicalRecordBtn.Location = new System.Drawing.Point(1992, 1044);
+            this.deleteClinicalRecordBtn.Name = "deleteClinicalRecordBtn";
+            this.deleteClinicalRecordBtn.Size = new System.Drawing.Size(305, 75);
+            this.deleteClinicalRecordBtn.TabIndex = 54;
+            this.deleteClinicalRecordBtn.Text = "Borrar Cita";
+            this.deleteClinicalRecordBtn.UseVisualStyleBackColor = true;
+            this.deleteClinicalRecordBtn.Click += new System.EventHandler(this.deleteClinicalRecordBtn_Click);
+            // 
             // MedicFiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -323,6 +337,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(3824, 2062);
+            this.Controls.Add(this.deleteClinicalRecordBtn);
             this.Controls.Add(this.addClinicRecordBtn);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.clinicRecordDatePicker);
@@ -336,7 +351,7 @@
             this.Controls.Add(this.fileSearchTextBox);
             this.Controls.Add(this.filesDataGridView);
             this.Name = "MedicFiles";
-            this.Text = "Archivos Médicos";
+            this.Text = "Historia Clínica";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MedicFiles_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.filesDataGridView)).EndInit();
@@ -376,5 +391,6 @@
         private System.Windows.Forms.DateTimePicker clinicRecordDatePicker;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button addClinicRecordBtn;
+        private System.Windows.Forms.Button deleteClinicalRecordBtn;
     }
 }

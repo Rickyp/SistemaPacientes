@@ -102,6 +102,7 @@
             this.patientsDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.patientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientsDataGridView.Location = new System.Drawing.Point(35, 133);
+            this.patientsDataGridView.MultiSelect = false;
             this.patientsDataGridView.Name = "patientsDataGridView";
             this.patientsDataGridView.ReadOnly = true;
             this.patientsDataGridView.RowHeadersVisible = false;
@@ -229,6 +230,7 @@
             this.diseaseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.diseaseDataGridView.ColumnHeadersVisible = false;
             this.diseaseDataGridView.Location = new System.Drawing.Point(102, 200);
+            this.diseaseDataGridView.MultiSelect = false;
             this.diseaseDataGridView.Name = "diseaseDataGridView";
             this.diseaseDataGridView.ReadOnly = true;
             this.diseaseDataGridView.RowHeadersVisible = false;
@@ -266,7 +268,7 @@
             // 
             // viewProfileBtn
             // 
-            this.viewProfileBtn.Location = new System.Drawing.Point(384, 1559);
+            this.viewProfileBtn.Location = new System.Drawing.Point(389, 1559);
             this.viewProfileBtn.Name = "viewProfileBtn";
             this.viewProfileBtn.Size = new System.Drawing.Size(225, 65);
             this.viewProfileBtn.TabIndex = 49;
@@ -306,9 +308,9 @@
             // 
             this.patientFilesButton.Location = new System.Drawing.Point(53, 1559);
             this.patientFilesButton.Name = "patientFilesButton";
-            this.patientFilesButton.Size = new System.Drawing.Size(225, 65);
+            this.patientFilesButton.Size = new System.Drawing.Size(248, 95);
             this.patientFilesButton.TabIndex = 48;
-            this.patientFilesButton.Text = "Ver Detalles";
+            this.patientFilesButton.Text = "Ver Historia Clínica";
             this.patientFilesButton.UseVisualStyleBackColor = true;
             this.patientFilesButton.Click += new System.EventHandler(this.patientFilesButton_Click);
             // 

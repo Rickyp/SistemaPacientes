@@ -261,33 +261,40 @@ namespace SistemaPacientes
 
         private void addNewDisease_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("¿Desea generar el nuevo antecedente '" + textBox13.Text + "'?",
-                                     "Nuevo Antecedente",
-                                     MessageBoxButtons.OKCancel);
-            if (confirmResult == DialogResult.OK)
+            if (textBox13.Text == "")
             {
-                string cmdString = "INSERT INTO Disease (Name, Type) VALUES (@val1, 2)";
-                using (sqlConnection = new SqlConnection(connectionString))
+                MessageBox.Show("ERROR: No se pueden guardar enfermedades sin nombre. Se debe teclear el nombre completo de la enfermedad en el campo de Busqueda: para poder ser agregado");
+            }
+            else
+            {
+                var confirmResult = MessageBox.Show("¿Desea generar el nuevo antecedente '" + textBox13.Text + "'?",
+                                         "Nuevo Antecedente",
+                                         MessageBoxButtons.OKCancel);
+                if (confirmResult == DialogResult.OK)
                 {
-                    using (SqlCommand comm = new SqlCommand())
+                    string cmdString = "INSERT INTO Disease (Name, Type) VALUES (@val1, 2)";
+                    using (sqlConnection = new SqlConnection(connectionString))
                     {
-                        comm.Connection = sqlConnection;
-                        comm.CommandText = cmdString;
-                        comm.Parameters.AddWithValue("@val1", textBox13.Text);
-                        try
+                        using (SqlCommand comm = new SqlCommand())
                         {
-                            sqlConnection.Open();
-                            comm.ExecuteNonQuery();
-                            MessageBox.Show("Se agregó un nuevo antecedente");
-                            searchAllDiseases();
-                            dataGridView1.ClearSelection();
-                            DataView dv = allDiseasesDataTable.DefaultView;
-                            dv.RowFilter = string.Format("Name LIKE '%{0}%'", textBox13.Text);
+                            comm.Connection = sqlConnection;
+                            comm.CommandText = cmdString;
+                            comm.Parameters.AddWithValue("@val1", textBox13.Text);
+                            try
+                            {
+                                sqlConnection.Open();
+                                comm.ExecuteNonQuery();
+                                MessageBox.Show("Se agregó un nuevo antecedente");
+                                searchAllDiseases();
+                                dataGridView1.ClearSelection();
+                                DataView dv = allDiseasesDataTable.DefaultView;
+                                dv.RowFilter = string.Format("Name LIKE '%{0}%'", textBox13.Text);
 
-                        }
-                        catch
-                        {
-                            MessageBox.Show("Ocurrió un error, antecedente no guardado");
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Ocurrió un error, antecedente no guardado");
+                            }
                         }
                     }
                 }

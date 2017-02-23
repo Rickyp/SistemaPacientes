@@ -58,6 +58,7 @@ namespace SistemaPacientes
             connectionString = ConfigurationManager.ConnectionStrings["SistemaPacientes.Properties.Settings.DatabaseConnectionString"].ConnectionString;
             this.patientId = patientId;
             groupBox2.Visible = false;
+            deleteClinicalRecordBtn.Visible = false;
             showPatientFiles();
             showClinicRecords();
         }
@@ -96,13 +97,14 @@ namespace SistemaPacientes
             using (sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Date, Description FROM ClinicRecord WHERE PatientId = " + patientId, sqlConnection))
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Date, Description, Id FROM ClinicRecord WHERE PatientId = " + patientId, sqlConnection))
                 {
                     clinicRecordsDataTable = new DataTable();
                     sqlDataAdapter.Fill(clinicRecordsDataTable);
                     clinicRecordsDataGridView.DataSource = clinicRecordsDataTable;
                     clinicRecordsDataGridView.Columns[0].HeaderText = "Fecha";
                     clinicRecordsDataGridView.Columns[1].HeaderText = "Descripción";
+                    clinicRecordsDataGridView.Columns[2].Visible = false;
                 }
             }
             clinicRecordsDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
@@ -140,13 +142,13 @@ namespace SistemaPacientes
             if (clinicRecordsDataGridView.Rows.GetRowsHeight(DataGridViewElementStates.None) + filesDataGridView.ColumnHeadersHeight + 3 < 350)
             {
                 totalHeight = clinicRecordsDataGridView.Rows.GetRowsHeight(DataGridViewElementStates.None) + filesDataGridView.ColumnHeadersHeight + 12;
-                totalWidth = clinicRecordsDataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.None) + 20;
+                totalWidth = clinicRecordsDataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.None) - clinicRecordsDataGridView.Columns[2].Width + 3;
 
             }
             else
             {
                 totalHeight = 350;
-                totalWidth = clinicRecordsDataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.None) + 20;
+                totalWidth = clinicRecordsDataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.None) - clinicRecordsDataGridView.Columns[2].Width + 20;
             }
 
 
@@ -206,32 +208,34 @@ namespace SistemaPacientes
                     MessageBox.Show("El archivo debe tener un nombre", "Error");
                 }
             }
-            string cmdString = "INSERT INTO MedicFile (Name, Description, FileAttached, UploadDate, PatientId, FileExtension)" +
-                " VALUES (@val1, @val2, @val3,  @val4,  @val5, @val6)";
-            using (sqlConnection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand comm = new SqlCommand())
+            else
+            { 
+                string cmdString = "INSERT INTO MedicFile (Name, Description, FileAttached, UploadDate, PatientId, FileExtension)" +
+                    " VALUES (@val1, @val2, @val3,  @val4,  @val5, @val6)";
+                using (sqlConnection = new SqlConnection(connectionString))
                 {
-                    comm.Connection = sqlConnection;
-                    comm.CommandText = cmdString;
-                    comm.Parameters.AddWithValue("@val1", fileName.Text);
-                    comm.Parameters.AddWithValue("@val2", fileDescription.Text);
-                    comm.Parameters.Add("@val3", SqlDbType.VarBinary, filebytes.Length).Value = filebytes;
-                    comm.Parameters.AddWithValue("@val4", DateTime.Today);
-                    comm.Parameters.AddWithValue("@val5", patientId);
-                    comm.Parameters.AddWithValue("@val6", fileExtension);
-                    sqlConnection.Open();
-                    comm.ExecuteNonQuery();
-                    MessageBox.Show("Se agregó un nuevo archivo");
+                    using (SqlCommand comm = new SqlCommand())
+                    {
+                        comm.Connection = sqlConnection;
+                        comm.CommandText = cmdString;
+                        comm.Parameters.AddWithValue("@val1", fileName.Text);
+                        comm.Parameters.AddWithValue("@val2", fileDescription.Text);
+                        comm.Parameters.Add("@val3", SqlDbType.VarBinary, filebytes.Length).Value = filebytes;
+                        comm.Parameters.AddWithValue("@val4", DateTime.Today);
+                        comm.Parameters.AddWithValue("@val5", patientId);
+                        comm.Parameters.AddWithValue("@val6", fileExtension);
+                        sqlConnection.Open();
+                        comm.ExecuteNonQuery();
+                        MessageBox.Show("Se agregó un nuevo archivo");
 
+                    }
                 }
+                showPatientFiles();
+                fileName.Text = "";
+                fileDescription.Text = "";
+                fileLabel.Text = "";
+                filebytes = null;
             }
-            showPatientFiles();
-            fileName.Text = "";
-            fileDescription.Text = "";
-            fileLabel.Text = "";
-            filebytes = null;
-
 
         }
 
@@ -283,22 +287,55 @@ namespace SistemaPacientes
 
         private void addClinicalRecordBtn_Click(object sender, EventArgs e)
         {
-            using (sqlConnection = new SqlConnection(connectionString))
+            if (clinicRecordTextBox.Text == "")
             {
-                using (SqlCommand command = new SqlCommand("INSERT INTO ClinicRecord (PatientId, Date, Description) VALUES (@val1, @val2, @val3)", sqlConnection))
-                {
-                    command.Connection = sqlConnection;
-                    sqlConnection.Open();
-                    command.Parameters.AddWithValue("@val1", patientId);
-                    command.Parameters.AddWithValue("@val2", clinicRecordDatePicker.Value);
-                    command.Parameters.AddWithValue("@val3", clinicRecordTextBox.Text);
-                    command.ExecuteNonQuery();
-                }
+                MessageBox.Show("No se puede guardar el resumen de una cita sin una descripción");
             }
-            showClinicRecords();
+            else
+            { 
+                using (sqlConnection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("INSERT INTO ClinicRecord (PatientId, Date, Description) VALUES (@val1, @val2, @val3)", sqlConnection))
+                    {
+                        command.Connection = sqlConnection;
+                        sqlConnection.Open();
+                        command.Parameters.AddWithValue("@val1", patientId);
+                        command.Parameters.AddWithValue("@val2", clinicRecordDatePicker.Value);
+                        command.Parameters.AddWithValue("@val3", clinicRecordTextBox.Text);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                showClinicRecords();
+                deleteClinicalRecordBtn.Visible = false;
+                clinicRecordTextBox.Text = "";
+            }
         }
 
+        private void clinicRecordsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            deleteClinicalRecordBtn.Visible = true;
+        }
 
+        private void deleteClinicalRecordBtn_Click(object sender, EventArgs e)
+        {
+
+            var confirmResult = MessageBox.Show("¿Desea borrar La cita?", "Borrar Cita", MessageBoxButtons.OKCancel);
+            if (confirmResult == DialogResult.OK)
+            {
+                using (sqlConnection = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("DELETE FROM ClinicRecord WHERE Id = " + clinicRecordsDataGridView.CurrentRow.Cells["Id"].Value, sqlConnection))
+                    {
+                        command.Connection = sqlConnection;
+                        sqlConnection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+                clinicRecordsDataGridView.ClearSelection();
+                deleteClinicalRecordBtn.Visible = false;
+                showClinicRecords();
+            }
+        }
     }
 }
 

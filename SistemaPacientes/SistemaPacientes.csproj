@@ -105,6 +105,9 @@
     <EmbeddedResource Include="ListPatients.resx">
       <DependentUpon>ListPatients.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MedicFiles.resx">
       <DependentUpon>MedicFiles.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,8 +153,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Database_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Database.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\NoImage.JPG" />
   </ItemGroup>

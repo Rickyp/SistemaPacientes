@@ -327,6 +327,8 @@ namespace SistemaPacientes
             ViewProfile viewProfileForm = new ViewProfile(patientDataId);
             viewProfileForm.refToListPatients = this;
             viewProfileForm.Show();
+            groupBox2.Visible = false;
+            patientsDataGridView.ClearSelection();
             this.Hide();
         }
     }
