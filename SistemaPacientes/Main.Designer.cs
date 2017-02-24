@@ -30,6 +30,8 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.createBackupBtn = new System.Windows.Forms.Button();
+            this.restoreBackupBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -52,12 +54,34 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // createBackupBtn
+            // 
+            this.createBackupBtn.Location = new System.Drawing.Point(371, 399);
+            this.createBackupBtn.Name = "createBackupBtn";
+            this.createBackupBtn.Size = new System.Drawing.Size(290, 54);
+            this.createBackupBtn.TabIndex = 2;
+            this.createBackupBtn.Text = "Crear respaldo";
+            this.createBackupBtn.UseVisualStyleBackColor = true;
+            this.createBackupBtn.Click += new System.EventHandler(this.createBackupBtn_Click);
+            // 
+            // restoreBackupBtn
+            // 
+            this.restoreBackupBtn.Location = new System.Drawing.Point(371, 580);
+            this.restoreBackupBtn.Name = "restoreBackupBtn";
+            this.restoreBackupBtn.Size = new System.Drawing.Size(290, 54);
+            this.restoreBackupBtn.TabIndex = 3;
+            this.restoreBackupBtn.Text = "Usar respaldo";
+            this.restoreBackupBtn.UseVisualStyleBackColor = true;
+            this.restoreBackupBtn.Click += new System.EventHandler(this.restoreBackupBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1071, 963);
+            this.Controls.Add(this.restoreBackupBtn);
+            this.Controls.Add(this.createBackupBtn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Main";
@@ -70,6 +94,8 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button createBackupBtn;
+        private System.Windows.Forms.Button restoreBackupBtn;
     }
 }
 
