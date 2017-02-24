@@ -280,6 +280,9 @@ namespace SistemaPacientes
                     patientDiseaseDataGridView.DataSource = patientDiseaseData;
                 }
             }
+            
+            
+            
         }
 
         private void patientsDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)

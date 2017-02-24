@@ -16,9 +16,25 @@ namespace SistemaPacientes
 {
     public partial class Main : Form
     {
+
+        public string connectionString;
+
+        public string dbName;
+
         public Main()
         {
+            connectionString = ConfigurationManager.ConnectionStrings["SistemaPacientes.Properties.Settings.DatabaseConnectionString"].ConnectionString;
             InitializeComponent();
+            
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT DB_NAME(db_id()) AS Name", sqlConnection))
+                {
+                    DataTable dat = new DataTable();
+                    adapter.Fill(dat);
+                    dbName = (string)dat.Rows[0]["Name"];
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,7 +56,7 @@ namespace SistemaPacientes
         private void createBackupBtn_Click(object sender, EventArgs e)
         {
             System.Data.SqlClient.SqlConnection.ClearAllPools();
-            string currentDbPath = Environment.CurrentDirectory + @"\Database.mdf";
+            string currentDbPath = dbName;
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
@@ -53,11 +69,12 @@ namespace SistemaPacientes
         private void restoreBackupBtn_Click(object sender, EventArgs e)
         {
             System.Data.SqlClient.SqlConnection.ClearAllPools();
-            string restorePath = Environment.CurrentDirectory + @"\Database.mdf";
+            string restorePath = dbName;
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string restoreFile = ofd.FileName;
+                File.Delete(restorePath + ".bak");
                 File.Move(restorePath, restorePath + ".bak");
                 File.Copy(restoreFile, restorePath, true);
             }
