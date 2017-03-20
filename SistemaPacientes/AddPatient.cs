@@ -51,6 +51,9 @@ namespace SistemaPacientes
             genderInt = 1;
             maleRadio.Checked = true;
             addNewDisease.Visible = false;
+            currentDateDay.Text = DateTime.Now.Day.ToString();
+            currentDateMonth.Text = DateTime.Now.Month.ToString();
+            currentDateYear.Text = DateTime.Now.Year.ToString();
 
             connectionString = ConfigurationManager.ConnectionStrings["SistemaPacientes.Properties.Settings.DatabaseConnectionString"].ConnectionString;
             using (sqlConnection = new SqlConnection(connectionString))
@@ -148,11 +151,31 @@ namespace SistemaPacientes
 
         private void createPatient_Click(object sender, EventArgs e)
         {
+            DateTime birthDate;
+            DateTime currentDate;
+            try
+            {
+                birthDate = new DateTime(int.Parse(birthDateYear.Text), int.Parse(birthDateMonth.Text), int.Parse(birthDateDay.Text));
+            }
+            catch
+            {
+                MessageBox.Show("La fecha de nacimiento no es válida");
+                return;
+            }
+            try
+            {
+                currentDate = new DateTime(int.Parse(currentDateYear.Text), int.Parse(currentDateMonth.Text), int.Parse(currentDateDay.Text));
+            }
+            catch
+            {
+                MessageBox.Show("La fecha de registro no es válida");
+                return;
+            }
             Int32 newPatientId;
-            string cmdString = "INSERT INTO Patient (FirstName, FirstSurname, SecondSurname, Gender, Photo," +
-                "DateRegistered, Street, Neighborhood, City, Telephone, BirthDate, BirthPlace, RecommendedBy, InsuranceNumber, InsuranceCompany)" +
-                "OUTPUT INSERTED.ID" +
-                " VALUES (@val1, @val2, @val3,  @val4,  @val5,  @val6,  @val7,  @val8,  @val9,  @val10,  @val11,  @val12,  @val13,  @val14, @val15)";
+            string cmdString = @"INSERT INTO Patient (FirstName, FirstSurname, SecondSurname, Gender, Photo,
+                DateRegistered, Street, Neighborhood, City, Telephone, BirthDate, BirthPlace, RecommendedBy, InsuranceNumber, InsuranceCompany)
+                OUTPUT INSERTED.ID
+                 VALUES (@val1, @val2, @val3,  @val4,  @val5,  @val6,  @val7,  @val8,  @val9,  @val10,  @val11,  @val12,  @val13,  @val14, @val15)";
             using (sqlConnection = new SqlConnection(connectionString))
             {
                 using (SqlCommand comm = new SqlCommand())
@@ -173,12 +196,12 @@ namespace SistemaPacientes
                         comm.Parameters.Add("@val5", SqlDbType.VarBinary, filebytes.Length).Value = filebytes;
                     }
 
-                    comm.Parameters.AddWithValue("@val6", dateTimePicker1.Value);
+                    comm.Parameters.AddWithValue("@val6", currentDate);
                     comm.Parameters.AddWithValue("@val7", textBox5.Text);
                     comm.Parameters.AddWithValue("@val8", textBox6.Text);
                     comm.Parameters.AddWithValue("@val9", textBox7.Text);
                     comm.Parameters.AddWithValue("@val10", textBox8.Text);
-                    comm.Parameters.AddWithValue("@val11", dateTimePicker2.Value);
+                    comm.Parameters.AddWithValue("@val11", birthDate);
                     comm.Parameters.AddWithValue("@val12", textBox9.Text);
                     comm.Parameters.AddWithValue("@val13", textBox10.Text);
                     comm.Parameters.AddWithValue("@val14", textBox11.Text);
@@ -235,6 +258,9 @@ namespace SistemaPacientes
                     textBox12.Text = "";
                     filebytes = null;
                     photoLabel.Text = "";
+                    birthDateDay.Text = "";
+                    birthDateMonth.Text = "";
+                    birthDateYear.Text = "";
                     listView1.Items.Clear();
                 }
             }
@@ -314,5 +340,7 @@ namespace SistemaPacientes
         {
             genderInt = 2;
         }
+
+       
     }
 }

@@ -23,18 +23,10 @@ namespace SistemaPacientes
 
         public Main()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["SistemaPacientes.Properties.Settings.DatabaseConnectionString"].ConnectionString;
             InitializeComponent();
-            
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-            {
-                using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT DB_NAME(db_id()) AS Name", sqlConnection))
-                {
-                    DataTable dat = new DataTable();
-                    adapter.Fill(dat);
-                    dbName = (string)dat.Rows[0]["Name"];
-                }
-            }
+            connectionString = ConfigurationManager.ConnectionStrings["SistemaPacientes.Properties.Settings.DatabaseConnectionString"].ConnectionString;
+            dbName = System.Windows.Forms.Application.StartupPath + "\\Database.mdf";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,28 +47,41 @@ namespace SistemaPacientes
 
         private void createBackupBtn_Click(object sender, EventArgs e)
         {
+
             System.Data.SqlClient.SqlConnection.ClearAllPools();
-            string currentDbPath = dbName;
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                string backUpPath = fbd.SelectedPath.ToString();
-                File.Copy(currentDbPath, backUpPath + @"\BackUp.mdf", true);
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("backup database @db to disk=@path with format", con);
+                    cmd.Parameters.AddWithValue("@db", dbName);
+                    cmd.Parameters.AddWithValue("@path", fbd.SelectedPath.ToString() + "\\Database.bak");
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
                 MessageBox.Show("Se generó el respaldo.");
             }
         }
 
         private void restoreBackupBtn_Click(object sender, EventArgs e)
         {
-            System.Data.SqlClient.SqlConnection.ClearAllPools();
-            string restorePath = dbName;
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Respaldo de base de datos|*.bak";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                string restoreFile = ofd.FileName;
-                File.Delete(restorePath + ".bak");
-                File.Move(restorePath, restorePath + ".bak");
-                File.Copy(restoreFile, restorePath, true);
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    string query = "USE [master]; RESTORE DATABASE @db FROM DISK = N'" +
+                                    ofd.FileName + " ' WITH FILE = 1, NOUNLOAD, REPLACE, STATS = 10";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@db", dbName);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                MessageBox.Show("Se recuperó la base de datos del remplazo.");
             }
         }
     }

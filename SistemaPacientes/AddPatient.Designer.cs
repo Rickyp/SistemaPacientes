@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -41,7 +41,6 @@
             this.photoLabel = new System.Windows.Forms.Label();
             this.removePhoto = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,7 +51,6 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -76,11 +74,25 @@
             this.maleRadio = new System.Windows.Forms.RadioButton();
             this.femaleRadio = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.birthDateDay = new System.Windows.Forms.TextBox();
+            this.birthDateMonth = new System.Windows.Forms.TextBox();
+            this.birthDateYear = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.currentDateYear = new System.Windows.Forms.TextBox();
+            this.currentDateMonth = new System.Windows.Forms.TextBox();
+            this.currentDateDay = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -184,22 +196,15 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Apellido Paterno";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(2034, 95);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(481, 38);
-            this.dateTimePicker1.TabIndex = 13;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2161, 158);
+            this.label6.Location = new System.Drawing.Point(2060, 158);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 58);
+            this.label6.Size = new System.Drawing.Size(434, 58);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Fecha";
+            this.label6.Text = "Fecha de Registro";
             // 
             // textBox5
             // 
@@ -278,13 +283,6 @@
             this.label11.Size = new System.Drawing.Size(429, 58);
             this.label11.TabIndex = 24;
             this.label11.Text = "Fecha Nacimiento";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(150, 676);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(481, 38);
-            this.dateTimePicker2.TabIndex = 23;
             // 
             // label13
             // 
@@ -369,8 +367,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Location = new System.Drawing.Point(102, 200);
@@ -505,6 +503,109 @@
             this.pictureBox1.TabIndex = 45;
             this.pictureBox1.TabStop = false;
             // 
+            // birthDateDay
+            // 
+            this.birthDateDay.Location = new System.Drawing.Point(221, 679);
+            this.birthDateDay.Name = "birthDateDay";
+            this.birthDateDay.Size = new System.Drawing.Size(66, 38);
+            this.birthDateDay.TabIndex = 46;
+            // 
+            // birthDateMonth
+            // 
+            this.birthDateMonth.Location = new System.Drawing.Point(324, 679);
+            this.birthDateMonth.Name = "birthDateMonth";
+            this.birthDateMonth.Size = new System.Drawing.Size(66, 38);
+            this.birthDateMonth.TabIndex = 47;
+            // 
+            // birthDateYear
+            // 
+            this.birthDateYear.Location = new System.Drawing.Point(428, 679);
+            this.birthDateYear.Name = "birthDateYear";
+            this.birthDateYear.Size = new System.Drawing.Size(96, 38);
+            this.birthDateYear.TabIndex = 48;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(915, 295);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 38);
+            this.numericUpDown1.TabIndex = 49;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(229, 640);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 32);
+            this.label17.TabIndex = 50;
+            this.label17.Text = "Día";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(322, 640);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(68, 32);
+            this.label18.TabIndex = 51;
+            this.label18.Text = "Mes";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(442, 640);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(66, 32);
+            this.label19.TabIndex = 52;
+            this.label19.Text = "Año";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(2344, 56);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(66, 32);
+            this.label20.TabIndex = 58;
+            this.label20.Text = "Año";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(2224, 56);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(68, 32);
+            this.label21.TabIndex = 57;
+            this.label21.Text = "Mes";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(2131, 56);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(58, 32);
+            this.label22.TabIndex = 56;
+            this.label22.Text = "Día";
+            // 
+            // currentDateYear
+            // 
+            this.currentDateYear.Location = new System.Drawing.Point(2330, 95);
+            this.currentDateYear.Name = "currentDateYear";
+            this.currentDateYear.Size = new System.Drawing.Size(96, 38);
+            this.currentDateYear.TabIndex = 55;
+            // 
+            // currentDateMonth
+            // 
+            this.currentDateMonth.Location = new System.Drawing.Point(2226, 95);
+            this.currentDateMonth.Name = "currentDateMonth";
+            this.currentDateMonth.Size = new System.Drawing.Size(66, 38);
+            this.currentDateMonth.TabIndex = 54;
+            // 
+            // currentDateDay
+            // 
+            this.currentDateDay.Location = new System.Drawing.Point(2123, 95);
+            this.currentDateDay.Name = "currentDateDay";
+            this.currentDateDay.Size = new System.Drawing.Size(66, 38);
+            this.currentDateDay.TabIndex = 53;
+            // 
             // AddPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -512,6 +613,19 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(3610, 2088);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.currentDateYear);
+            this.Controls.Add(this.currentDateMonth);
+            this.Controls.Add(this.currentDateDay);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.birthDateYear);
+            this.Controls.Add(this.birthDateMonth);
+            this.Controls.Add(this.birthDateDay);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.femaleRadio);
             this.Controls.Add(this.maleRadio);
@@ -526,7 +640,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label9);
@@ -536,7 +649,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.removePhoto);
             this.Controls.Add(this.photoLabel);
@@ -558,6 +670,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -576,7 +689,6 @@
         private System.Windows.Forms.Label photoLabel;
         private System.Windows.Forms.Button removePhoto;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
@@ -587,7 +699,6 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label4;
@@ -611,5 +722,18 @@
         private System.Windows.Forms.RadioButton maleRadio;
         private System.Windows.Forms.RadioButton femaleRadio;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox birthDateDay;
+        private System.Windows.Forms.TextBox birthDateMonth;
+        private System.Windows.Forms.TextBox birthDateYear;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox currentDateYear;
+        private System.Windows.Forms.TextBox currentDateMonth;
+        private System.Windows.Forms.TextBox currentDateDay;
     }
 }

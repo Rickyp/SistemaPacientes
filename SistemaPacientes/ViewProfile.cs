@@ -101,15 +101,22 @@ namespace SistemaPacientes
                 {
                     DataTable patientDataTable = new DataTable();
                     sqlDataAdapter.Fill(patientDataTable);
+                    DateTime birthDate = (DateTime)patientDataTable.Rows[0]["BirthDate"];
+                    DateTime dateRegistered = (DateTime)patientDataTable.Rows[0]["DateRegistered"];
+
                     FirstNameTb.Text = patientDataTable.Rows[0]["FirstName"].ToString();
                     FirstSurnameTb.Text = patientDataTable.Rows[0]["FirstSurname"].ToString();
                     SecondSurnameTb.Text = patientDataTable.Rows[0]["SecondSurname"].ToString();
-                    DateRegisteredDp.Value = (DateTime)patientDataTable.Rows[0]["DateRegistered"];
+                    DateRegisteredDay.Text = dateRegistered.Day.ToString();
+                    DateRegisteredMonth.Text = dateRegistered.Month.ToString();
+                    DateRegisteredYear.Text = dateRegistered.Year.ToString();
                     StreetTb.Text = patientDataTable.Rows[0]["Street"].ToString();
                     NeighborhoodTb.Text = patientDataTable.Rows[0]["Neighborhood"].ToString();
                     CityTb.Text = patientDataTable.Rows[0]["City"].ToString();
                     TelephoneTb.Text = patientDataTable.Rows[0]["Telephone"].ToString();
-                    BirthDateDp.Value = (DateTime) patientDataTable.Rows[0]["BirthDate"];
+                    BirthDateDay.Text = birthDate.Day.ToString();
+                    BirthDateMonth.Text = birthDate.Month.ToString();
+                    BirthDateYear.Text = birthDate.Year.ToString();
                     BirthPlaceTb.Text = patientDataTable.Rows[0]["BirthPlace"].ToString();
                     RecommendedByTb.Text = patientDataTable.Rows[0]["RecommendedBy"].ToString();
                     InsuranceNumberTb.Text = patientDataTable.Rows[0]["InsuranceNumber"].ToString();
@@ -403,6 +410,27 @@ namespace SistemaPacientes
 
         private void updatePatient_Click(object sender, EventArgs e)
         {
+            DateTime birthDate;
+            DateTime dateRegistered;
+            try
+            {
+                birthDate = new DateTime(int.Parse(BirthDateYear.Text), int.Parse(BirthDateMonth.Text), int.Parse(BirthDateDay.Text));
+            }
+            catch
+            {
+                MessageBox.Show("La fecha de nacimiento no es válida");
+                return;
+            }
+            try
+            {
+                dateRegistered = new DateTime(int.Parse(DateRegisteredYear.Text), int.Parse(DateRegisteredMonth.Text), int.Parse(DateRegisteredDay.Text));
+            }
+            catch
+            {
+                MessageBox.Show("La fecha de registro no es válida");
+                return;
+            }
+
             string cmdString = @"UPDATE Patient 
                                  SET FirstName = @val1, FirstSurname = @val2, SecondSurname = @val3, Gender = @val4, Photo = @val5, 
                                  DateRegistered = @val6, Street = @val7, Neighborhood = @val8, City = @val9, Telephone = @val10, BirthDate = @val11, 
@@ -428,12 +456,12 @@ namespace SistemaPacientes
                         comm.Parameters.Add("@val5", SqlDbType.VarBinary, filebytes.Length).Value = filebytes;
                     }
 
-                    comm.Parameters.AddWithValue("@val6", DateRegisteredDp.Value);
+                    comm.Parameters.AddWithValue("@val6", dateRegistered);
                     comm.Parameters.AddWithValue("@val7", StreetTb.Text);
                     comm.Parameters.AddWithValue("@val8", NeighborhoodTb.Text);
                     comm.Parameters.AddWithValue("@val9", CityTb.Text);
                     comm.Parameters.AddWithValue("@val10", TelephoneTb.Text);
-                    comm.Parameters.AddWithValue("@val11", BirthDateDp.Value);
+                    comm.Parameters.AddWithValue("@val11", birthDate);
                     comm.Parameters.AddWithValue("@val12", BirthPlaceTb.Text);
                     comm.Parameters.AddWithValue("@val13", RecommendedByTb.Text);
                     comm.Parameters.AddWithValue("@val14", InsuranceNumberTb.Text);

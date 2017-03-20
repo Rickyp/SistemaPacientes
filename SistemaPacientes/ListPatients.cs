@@ -265,8 +265,12 @@ namespace SistemaPacientes
                     surnameLabel.Text = patientData.Rows[0]["FirstSurname"].ToString() +
                         " " + patientData.Rows[0]["SecondSurname"].ToString();
 
+                    DateTime currentDate = DateTime.Today;
+                    DateTime birthDate = (DateTime)patientData.Rows[0]["BirthDate"];
+                    int age = currentDate.Year - birthDate.Year;
+                    if (currentDate < birthDate.AddYears(age)) age--;
 
-                    ageLabel.Text = (DateTime.Today.Year - ((DateTime)patientData.Rows[0]["BirthDate"]).Year).ToString();
+                    ageLabel.Text = age.ToString();
 
                     patientDataId = (int)patientsDataGridView.CurrentRow.Cells["Id"].Value;
                 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.FirstSurnameTb = new System.Windows.Forms.TextBox();
@@ -42,7 +42,6 @@
             this.photoLabel = new System.Windows.Forms.Label();
             this.removePhoto = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.DateRegisteredDp = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.StreetTb = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,7 +52,6 @@
             this.TelephoneTb = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.BirthDateDp = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.BirthPlaceTb = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -83,6 +81,18 @@
             this.femaleRadio = new System.Windows.Forms.RadioButton();
             this.reestablishPhoto = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.DateRegisteredYear = new System.Windows.Forms.TextBox();
+            this.DateRegisteredMonth = new System.Windows.Forms.TextBox();
+            this.DateRegisteredDay = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.BirthDateYear = new System.Windows.Forms.TextBox();
+            this.BirthDateMonth = new System.Windows.Forms.TextBox();
+            this.BirthDateDay = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).BeginInit();
@@ -193,22 +203,15 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Apellido Paterno";
             // 
-            // DateRegisteredDp
-            // 
-            this.DateRegisteredDp.Location = new System.Drawing.Point(2034, 95);
-            this.DateRegisteredDp.Name = "DateRegisteredDp";
-            this.DateRegisteredDp.Size = new System.Drawing.Size(481, 38);
-            this.DateRegisteredDp.TabIndex = 13;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(2161, 158);
+            this.label6.Location = new System.Drawing.Point(2067, 158);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 58);
+            this.label6.Size = new System.Drawing.Size(434, 58);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Fecha";
+            this.label6.Text = "Fecha de Registro";
             // 
             // StreetTb
             // 
@@ -287,13 +290,6 @@
             this.label11.Size = new System.Drawing.Size(429, 58);
             this.label11.TabIndex = 24;
             this.label11.Text = "Fecha Nacimiento";
-            // 
-            // BirthDateDp
-            // 
-            this.BirthDateDp.Location = new System.Drawing.Point(150, 676);
-            this.BirthDateDp.Name = "BirthDateDp";
-            this.BirthDateDp.Size = new System.Drawing.Size(481, 38);
-            this.BirthDateDp.TabIndex = 23;
             // 
             // label13
             // 
@@ -378,8 +374,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Location = new System.Drawing.Point(122, 228);
@@ -524,8 +520,8 @@
             // 
             this.patientDiseasesDataGridView.AllowUserToAddRows = false;
             this.patientDiseasesDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.patientDiseasesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.patientDiseasesDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.patientDiseasesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientDiseasesDataGridView.ColumnHeadersVisible = false;
             this.patientDiseasesDataGridView.Location = new System.Drawing.Point(122, 228);
@@ -592,6 +588,102 @@
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(2327, 56);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(66, 32);
+            this.label20.TabIndex = 64;
+            this.label20.Text = "Año";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(2207, 56);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(68, 32);
+            this.label21.TabIndex = 63;
+            this.label21.Text = "Mes";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(2114, 56);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(58, 32);
+            this.label22.TabIndex = 62;
+            this.label22.Text = "Día";
+            // 
+            // DateRegisteredYear
+            // 
+            this.DateRegisteredYear.Location = new System.Drawing.Point(2313, 95);
+            this.DateRegisteredYear.Name = "DateRegisteredYear";
+            this.DateRegisteredYear.Size = new System.Drawing.Size(96, 38);
+            this.DateRegisteredYear.TabIndex = 61;
+            // 
+            // DateRegisteredMonth
+            // 
+            this.DateRegisteredMonth.Location = new System.Drawing.Point(2209, 95);
+            this.DateRegisteredMonth.Name = "DateRegisteredMonth";
+            this.DateRegisteredMonth.Size = new System.Drawing.Size(66, 38);
+            this.DateRegisteredMonth.TabIndex = 60;
+            // 
+            // DateRegisteredDay
+            // 
+            this.DateRegisteredDay.Location = new System.Drawing.Point(2106, 95);
+            this.DateRegisteredDay.Name = "DateRegisteredDay";
+            this.DateRegisteredDay.Size = new System.Drawing.Size(66, 38);
+            this.DateRegisteredDay.TabIndex = 59;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(456, 640);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(66, 32);
+            this.label19.TabIndex = 70;
+            this.label19.Text = "Año";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(336, 640);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(68, 32);
+            this.label23.TabIndex = 69;
+            this.label23.Text = "Mes";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(243, 640);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(58, 32);
+            this.label24.TabIndex = 68;
+            this.label24.Text = "Día";
+            // 
+            // BirthDateYear
+            // 
+            this.BirthDateYear.Location = new System.Drawing.Point(442, 679);
+            this.BirthDateYear.Name = "BirthDateYear";
+            this.BirthDateYear.Size = new System.Drawing.Size(96, 38);
+            this.BirthDateYear.TabIndex = 67;
+            // 
+            // BirthDateMonth
+            // 
+            this.BirthDateMonth.Location = new System.Drawing.Point(338, 679);
+            this.BirthDateMonth.Name = "BirthDateMonth";
+            this.BirthDateMonth.Size = new System.Drawing.Size(66, 38);
+            this.BirthDateMonth.TabIndex = 66;
+            // 
+            // BirthDateDay
+            // 
+            this.BirthDateDay.Location = new System.Drawing.Point(235, 679);
+            this.BirthDateDay.Name = "BirthDateDay";
+            this.BirthDateDay.Size = new System.Drawing.Size(66, 38);
+            this.BirthDateDay.TabIndex = 65;
+            // 
             // ViewProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -599,6 +691,18 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(3610, 2088);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.BirthDateYear);
+            this.Controls.Add(this.BirthDateMonth);
+            this.Controls.Add(this.BirthDateDay);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.DateRegisteredYear);
+            this.Controls.Add(this.DateRegisteredMonth);
+            this.Controls.Add(this.DateRegisteredDay);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.reestablishPhoto);
             this.Controls.Add(this.femaleRadio);
@@ -615,7 +719,6 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.BirthPlaceTb);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.BirthDateDp);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.TelephoneTb);
             this.Controls.Add(this.label9);
@@ -625,7 +728,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.StreetTb);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.DateRegisteredDp);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.removePhoto);
             this.Controls.Add(this.photoLabel);
@@ -668,7 +770,6 @@
         private System.Windows.Forms.Label photoLabel;
         private System.Windows.Forms.Button removePhoto;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker DateRegisteredDp;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox StreetTb;
         private System.Windows.Forms.Label label7;
@@ -679,7 +780,6 @@
         private System.Windows.Forms.TextBox TelephoneTb;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DateTimePicker BirthDateDp;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox BirthPlaceTb;
         private System.Windows.Forms.Label label4;
@@ -709,5 +809,17 @@
         private System.Windows.Forms.RadioButton femaleRadio;
         private System.Windows.Forms.Button reestablishPhoto;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox DateRegisteredYear;
+        private System.Windows.Forms.TextBox DateRegisteredMonth;
+        private System.Windows.Forms.TextBox DateRegisteredDay;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox BirthDateYear;
+        private System.Windows.Forms.TextBox BirthDateMonth;
+        private System.Windows.Forms.TextBox BirthDateDay;
     }
 }
