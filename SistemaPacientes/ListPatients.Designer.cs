@@ -60,6 +60,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.deletePatientBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsDataGridView)).BeginInit();
@@ -251,6 +252,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.deletePatientBtn);
             this.groupBox2.Controls.Add(this.viewProfileBtn);
             this.groupBox2.Controls.Add(this.patientDiseaseDataGridView);
             this.groupBox2.Controls.Add(this.label5);
@@ -363,6 +365,16 @@
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
             // 
+            // deletePatientBtn
+            // 
+            this.deletePatientBtn.Location = new System.Drawing.Point(986, 1544);
+            this.deletePatientBtn.Name = "deletePatientBtn";
+            this.deletePatientBtn.Size = new System.Drawing.Size(248, 95);
+            this.deletePatientBtn.TabIndex = 51;
+            this.deletePatientBtn.Text = "Borrar Paciente";
+            this.deletePatientBtn.UseVisualStyleBackColor = true;
+            this.deletePatientBtn.Click += new System.EventHandler(this.deletePatientBtn_Click);
+            // 
             // ListPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -430,5 +442,6 @@
         private System.Windows.Forms.DataGridView patientDiseaseDataGridView;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button viewProfileBtn;
+        private System.Windows.Forms.Button deletePatientBtn;
     }
 }

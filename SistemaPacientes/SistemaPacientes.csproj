@@ -81,6 +81,12 @@
     <Compile Include="AddPatient.Designer.cs">
       <DependentUpon>AddPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClinicRecordSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClinicRecordSummary.Designer.cs">
+      <DependentUpon>ClinicRecordSummary.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +120,9 @@
     </Compile>
     <EmbeddedResource Include="AddPatient.resx">
       <DependentUpon>AddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClinicRecordSummary.resx">
+      <DependentUpon>ClinicRecordSummary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListPatients.resx">
       <DependentUpon>ListPatients.cs</DependentUpon>

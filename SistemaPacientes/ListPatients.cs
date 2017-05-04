@@ -338,5 +338,36 @@ namespace SistemaPacientes
             patientsDataGridView.ClearSelection();
             this.Hide();
         }
+
+        private void deletePatientBtn_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("¿Desea borrar el paciente y su historia clínica?", "Borrar Paciente", MessageBoxButtons.OKCancel);
+            if (confirmResult == DialogResult.OK)
+            {
+                groupBox2.Visible = false;
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+                    SqlCommand command = new SqlCommand("DELETE FROM PatientDisease WHERE PatientId = " + patientDataId, sqlConnection);
+                    command.ExecuteNonQuery();
+                    command = new SqlCommand("DELETE FROM ClinicRecord WHERE PatientId = " + patientDataId, sqlConnection);
+                    command.ExecuteNonQuery();
+                    command = new SqlCommand("DELETE FROM MedicFile WHERE PatientId = " + patientDataId, sqlConnection);
+                    command.ExecuteNonQuery();
+                    command = new SqlCommand("DELETE FROM Patient WHERE Id = " + patientDataId, sqlConnection);
+                    command.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Id, FirstName, FirstSurname, SecondSurname FROM Patient", sqlConnection))
+                    {
+                        patientDataTable = new DataTable();
+                        sqlDataAdapter.Fill(patientDataTable);
+                        patientsDataGridView.DataSource = patientDataTable;
+                        patientsDataGridView.Columns[1].HeaderText = "Nombre";
+                        patientsDataGridView.Columns[2].HeaderText = "Primer Apellido";
+                        patientsDataGridView.Columns[3].HeaderText = "Segundo Apellido";
+                    }
+                    MessageBox.Show("El paciente ha sido borrado.");
+                }
+            }
+        }
     }
 }

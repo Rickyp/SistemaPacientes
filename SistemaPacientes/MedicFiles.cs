@@ -19,6 +19,8 @@ namespace SistemaPacientes
         //Reference to ListPatients
         public ListPatients refToListPatients { get; set; }
 
+        public ClinicRecordSummary refToClinicRecordSummary { get; set; }
+
         SqlConnection sqlConnection;
 
         //Located in connectionString name of app config, used to connect to data base
@@ -35,6 +37,9 @@ namespace SistemaPacientes
         public byte[] filebytes;
         public string fileExtension;
 
+        //Indicate if it is surgery or regular appointment
+        public int clinicRecordType;
+
         //Files data table
         public DataTable filesDataTable;
         public DataTable clinicRecordsDataTable;
@@ -45,7 +50,15 @@ namespace SistemaPacientes
             {
                 //If the form was closed or terminated, terminates the entire program by closing the main form
                 //If the form was clsoed by clicking the return button, only ends current form
-                this.refToListPatients.Close();
+                if (this.refToListPatients != null)
+                {
+                    this.refToListPatients.Close();
+                }
+                else
+                {
+                    this.refToClinicRecordSummary.Close();
+                }
+                
             }
         }
 
@@ -53,12 +66,17 @@ namespace SistemaPacientes
         public MedicFiles(int patientId)
         {
             InitializeComponent();
+            noSurgeryRb.Checked = true;
+            clinicRecordType = 0;
             pressedBack = false;
             filebytes = null;
             connectionString = ConfigurationManager.ConnectionStrings["SistemaPacientes.Properties.Settings.DatabaseConnectionString"].ConnectionString;
             this.patientId = patientId;
             groupBox2.Visible = false;
             deleteClinicalRecordBtn.Visible = false;
+            clinicRecordDateDay.Text = DateTime.Today.Day.ToString();
+            clinicRecordDateMonth.Text = DateTime.Today.Month.ToString();
+            clinicRecordDateYear.Text = DateTime.Today.Year.ToString();
             showPatientFiles();
             showClinicRecords();
         }
@@ -97,18 +115,33 @@ namespace SistemaPacientes
             using (sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
-                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Date, Description, Id FROM ClinicRecord WHERE PatientId = " + patientId, sqlConnection))
+                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Date, Description, RecordType, Id FROM ClinicRecord WHERE PatientId = " + patientId, sqlConnection))
                 {
                     clinicRecordsDataTable = new DataTable();
                     sqlDataAdapter.Fill(clinicRecordsDataTable);
+                    clinicRecordsDataTable.Columns.Add("Type", typeof(System.String)).SetOrdinal(0);
+                    foreach (DataRow row in clinicRecordsDataTable.Rows)
+                    {
+                        if (row["RecordType"] == DBNull.Value)
+                        {
+                            row["Type"] = "Cita";
+                        }
+                        else
+                        {
+                            row["Type"] = "Cirugía";
+                        }
+                    }
+
                     clinicRecordsDataGridView.DataSource = clinicRecordsDataTable;
-                    clinicRecordsDataGridView.Columns[0].HeaderText = "Fecha";
-                    clinicRecordsDataGridView.Columns[1].HeaderText = "Descripción";
-                    clinicRecordsDataGridView.Columns[2].Visible = false;
+                    clinicRecordsDataGridView.Columns[0].HeaderText = "Tipo";
+                    clinicRecordsDataGridView.Columns[1].HeaderText = "Fecha";
+                    clinicRecordsDataGridView.Columns[2].HeaderText = "Descripción";
+                    clinicRecordsDataGridView.Columns[3].Visible = false;
+                    clinicRecordsDataGridView.Columns[4].Visible = false;
                 }
             }
             clinicRecordsDataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            clinicRecordsDataGridView.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            clinicRecordsDataGridView.Columns[2].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
         private void filesDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -135,20 +168,20 @@ namespace SistemaPacientes
         private void clinicRecordsDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             int totalHeight;
-            int totalWidth;
-            clinicRecordsDataGridView.Columns[1].Width = 600;
-            clinicRecordsDataGridView.Columns[0].Width = 120;
+            int totalWidth = clinicRecordsDataGridView.Columns[0].Width + clinicRecordsDataGridView.Columns[1].Width + clinicRecordsDataGridView.Columns[2].Width;
+            clinicRecordsDataGridView.Columns[2].Width = 600;
+            clinicRecordsDataGridView.Columns[1].Width = 120;
 
             if (clinicRecordsDataGridView.Rows.GetRowsHeight(DataGridViewElementStates.None) + filesDataGridView.ColumnHeadersHeight + 3 < 350)
             {
                 totalHeight = clinicRecordsDataGridView.Rows.GetRowsHeight(DataGridViewElementStates.None) + filesDataGridView.ColumnHeadersHeight + 12;
-                totalWidth = clinicRecordsDataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.None) - clinicRecordsDataGridView.Columns[2].Width + 3;
+                totalWidth += 3;
 
             }
             else
             {
                 totalHeight = 350;
-                totalWidth = clinicRecordsDataGridView.Columns.GetColumnsWidth(DataGridViewElementStates.None) - clinicRecordsDataGridView.Columns[2].Width + 20;
+                totalWidth += 20;
             }
 
 
@@ -179,7 +212,14 @@ namespace SistemaPacientes
 
         private void returnBtn_Click(object sender, EventArgs e)
         {
-            this.refToListPatients.Show();
+            if (this.refToListPatients != null)
+            {
+                this.refToListPatients.Show();
+            }
+            else
+            {
+                this.refToClinicRecordSummary.Show();
+            }
             pressedBack = true;
             this.Close();
         }
@@ -287,20 +327,35 @@ namespace SistemaPacientes
 
         private void addClinicalRecordBtn_Click(object sender, EventArgs e)
         {
+            DateTime clinicRecordDate;
             if (clinicRecordTextBox.Text == "")
             {
                 MessageBox.Show("No se puede guardar el resumen de una cita sin una descripción");
             }
             else
-            { 
+            {
+                try
+                {
+                    clinicRecordDate = new DateTime(int.Parse(clinicRecordDateYear.Text), int.Parse(clinicRecordDateMonth.Text), int.Parse(clinicRecordDateDay.Text));
+                }
+                catch
+                {
+                    MessageBox.Show("La fecha es inválida.");
+                    return;
+                } 
                 using (sqlConnection = new SqlConnection(connectionString))
                 {
-                    using (SqlCommand command = new SqlCommand("INSERT INTO ClinicRecord (PatientId, Date, Description) VALUES (@val1, @val2, @val3)", sqlConnection))
+                    string queryString = "INSERT INTO ClinicRecord (PatientId, Date, Description) VALUES (@val1, @val2, @val3)";
+                    if (clinicRecordType == 1)
+                    {
+                        queryString = "INSERT INTO ClinicRecord (PatientId, Date, Description, RecordType) VALUES (@val1, @val2, @val3, 1)";
+                    }
+                    using (SqlCommand command = new SqlCommand(queryString, sqlConnection))
                     {
                         command.Connection = sqlConnection;
                         sqlConnection.Open();
                         command.Parameters.AddWithValue("@val1", patientId);
-                        command.Parameters.AddWithValue("@val2", clinicRecordDatePicker.Value);
+                        command.Parameters.AddWithValue("@val2", clinicRecordDate);
                         command.Parameters.AddWithValue("@val3", clinicRecordTextBox.Text);
                         command.ExecuteNonQuery();
                     }
@@ -335,6 +390,21 @@ namespace SistemaPacientes
                 deleteClinicalRecordBtn.Visible = false;
                 showClinicRecords();
             }
+        }
+
+
+        private void yesSurgeryRb_Click(object sender, EventArgs e)
+        {
+            clinicRecordType = 1;
+            clinicRecordLabel.Text = "Agregar nueva cirugía";
+            addClinicRecordBtn.Text = "Agregar Cirugía";
+        }
+
+        private void noSurgeryRb_Click(object sender, EventArgs e)
+        {
+            clinicRecordType = 0;
+            clinicRecordLabel.Text = "Agregar nueva cita";
+            addClinicRecordBtn.Text = "Agregar Cita";
         }
     }
 }

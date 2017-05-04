@@ -79,10 +79,22 @@ namespace SistemaPacientes
                     cmd.Parameters.AddWithValue("@db", dbName);
                     con.Open();
                     cmd.ExecuteNonQuery();
+                    //If there needs to be a change in the database, do it and work with it as usual during debugging, and when deploying do this after getting the old db to the new programs version
+                    //In this example, a column is added to a table, this must be done only one time so that the old db schema matches the new db schema.
+                        //cmd = new SqlCommand("USE [master]; ALTER TABLE ["+ dbName +"].[dbo].[ClinicRecord] ADD[RecordType] INT NULL; ", con);
+                        //cmd.ExecuteNonQuery();
                     con.Close();
                 }
                 MessageBox.Show("Se recuperó la base de datos del remplazo.");
             }
+        }
+
+        private void ClinicRecordSummaryBtn_Click(object sender, EventArgs e)
+        {
+            ClinicRecordSummary clinicRecordSummaryForm = new ClinicRecordSummary();
+            clinicRecordSummaryForm.refToMain = this;
+            clinicRecordSummaryForm.Show();
+            this.Hide();
         }
     }
 }

@@ -32,6 +32,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.createBackupBtn = new System.Windows.Forms.Button();
             this.restoreBackupBtn = new System.Windows.Forms.Button();
+            this.ClinicRecordSummaryBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -56,7 +57,7 @@
             // 
             // createBackupBtn
             // 
-            this.createBackupBtn.Location = new System.Drawing.Point(371, 399);
+            this.createBackupBtn.Location = new System.Drawing.Point(371, 605);
             this.createBackupBtn.Name = "createBackupBtn";
             this.createBackupBtn.Size = new System.Drawing.Size(290, 54);
             this.createBackupBtn.TabIndex = 2;
@@ -66,7 +67,7 @@
             // 
             // restoreBackupBtn
             // 
-            this.restoreBackupBtn.Location = new System.Drawing.Point(371, 580);
+            this.restoreBackupBtn.Location = new System.Drawing.Point(371, 707);
             this.restoreBackupBtn.Name = "restoreBackupBtn";
             this.restoreBackupBtn.Size = new System.Drawing.Size(290, 54);
             this.restoreBackupBtn.TabIndex = 3;
@@ -74,12 +75,23 @@
             this.restoreBackupBtn.UseVisualStyleBackColor = true;
             this.restoreBackupBtn.Click += new System.EventHandler(this.restoreBackupBtn_Click);
             // 
+            // ClinicRecordSummaryBtn
+            // 
+            this.ClinicRecordSummaryBtn.Location = new System.Drawing.Point(371, 366);
+            this.ClinicRecordSummaryBtn.Name = "ClinicRecordSummaryBtn";
+            this.ClinicRecordSummaryBtn.Size = new System.Drawing.Size(290, 54);
+            this.ClinicRecordSummaryBtn.TabIndex = 4;
+            this.ClinicRecordSummaryBtn.Text = "Resumen de Citas";
+            this.ClinicRecordSummaryBtn.UseVisualStyleBackColor = true;
+            this.ClinicRecordSummaryBtn.Click += new System.EventHandler(this.ClinicRecordSummaryBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1071, 963);
+            this.Controls.Add(this.ClinicRecordSummaryBtn);
             this.Controls.Add(this.restoreBackupBtn);
             this.Controls.Add(this.createBackupBtn);
             this.Controls.Add(this.button2);
@@ -96,6 +108,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button createBackupBtn;
         private System.Windows.Forms.Button restoreBackupBtn;
+        private System.Windows.Forms.Button ClinicRecordSummaryBtn;
     }
 }
 

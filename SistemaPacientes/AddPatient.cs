@@ -224,7 +224,6 @@ namespace SistemaPacientes
                     if (diseaseNames != "")
                     {
                         diseaseNames = diseaseNames.Remove(diseaseNames.Length - 2, 2);
-                        Debug.WriteLine(diseaseNames);
                         using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Id FROM Disease WHERE Name IN (" + diseaseNames + ")", sqlConnection))
                         {
                             dataTable = new DataTable();
@@ -309,7 +308,7 @@ namespace SistemaPacientes
                                 sqlConnection.Open();
                                 comm.ExecuteNonQuery();
                                 MessageBox.Show("Se agregó un nuevo antecedente");
-                                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Name FROM Disease WHERE Type = 2", sqlConnection))
+                                using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("SELECT Name FROM Disease", sqlConnection))
                                 {
                                     dataTable = new DataTable();
                                     sqlDataAdapter.Fill(dataTable);
@@ -319,6 +318,7 @@ namespace SistemaPacientes
                                 dataGridView1.ClearSelection();
                                 DataView dv = dataTable.DefaultView;
                                 dv.RowFilter = string.Format("Name LIKE '%{0}%'", textBox13.Text);
+                                listView1.Items.Add(textBox13.Text);
 
                             }
                             catch

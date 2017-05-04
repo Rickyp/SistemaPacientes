@@ -52,10 +52,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.clinicRecordsDataGridView = new System.Windows.Forms.DataGridView();
             this.clinicRecordTextBox = new System.Windows.Forms.TextBox();
-            this.clinicRecordDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
+            this.clinicRecordLabel = new System.Windows.Forms.Label();
             this.addClinicRecordBtn = new System.Windows.Forms.Button();
             this.deleteClinicalRecordBtn = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.clinicRecordDateYear = new System.Windows.Forms.TextBox();
+            this.clinicRecordDateMonth = new System.Windows.Forms.TextBox();
+            this.clinicRecordDateDay = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.yesSurgeryRb = new System.Windows.Forms.RadioButton();
+            this.noSurgeryRb = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.filesDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -293,22 +301,15 @@
             this.clinicRecordTextBox.Size = new System.Drawing.Size(1367, 430);
             this.clinicRecordTextBox.TabIndex = 51;
             // 
-            // clinicRecordDatePicker
+            // clinicRecordLabel
             // 
-            this.clinicRecordDatePicker.Location = new System.Drawing.Point(1992, 1330);
-            this.clinicRecordDatePicker.Name = "clinicRecordDatePicker";
-            this.clinicRecordDatePicker.Size = new System.Drawing.Size(463, 38);
-            this.clinicRecordDatePicker.TabIndex = 52;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1982, 1220);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(445, 58);
-            this.label6.TabIndex = 53;
-            this.label6.Text = "Agregar nueva cita";
+            this.clinicRecordLabel.AutoSize = true;
+            this.clinicRecordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clinicRecordLabel.Location = new System.Drawing.Point(1982, 1220);
+            this.clinicRecordLabel.Name = "clinicRecordLabel";
+            this.clinicRecordLabel.Size = new System.Drawing.Size(445, 58);
+            this.clinicRecordLabel.TabIndex = 53;
+            this.clinicRecordLabel.Text = "Agregar nueva cita";
             // 
             // addClinicRecordBtn
             // 
@@ -330,6 +331,87 @@
             this.deleteClinicalRecordBtn.UseVisualStyleBackColor = true;
             this.deleteClinicalRecordBtn.Click += new System.EventHandler(this.deleteClinicalRecordBtn_Click);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(2213, 1310);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(66, 32);
+            this.label20.TabIndex = 64;
+            this.label20.Text = "Año";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(2093, 1310);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(68, 32);
+            this.label21.TabIndex = 63;
+            this.label21.Text = "Mes";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(2000, 1310);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(58, 32);
+            this.label22.TabIndex = 62;
+            this.label22.Text = "Día";
+            // 
+            // clinicRecordDateYear
+            // 
+            this.clinicRecordDateYear.Location = new System.Drawing.Point(2199, 1349);
+            this.clinicRecordDateYear.Name = "clinicRecordDateYear";
+            this.clinicRecordDateYear.Size = new System.Drawing.Size(96, 38);
+            this.clinicRecordDateYear.TabIndex = 61;
+            // 
+            // clinicRecordDateMonth
+            // 
+            this.clinicRecordDateMonth.Location = new System.Drawing.Point(2095, 1349);
+            this.clinicRecordDateMonth.Name = "clinicRecordDateMonth";
+            this.clinicRecordDateMonth.Size = new System.Drawing.Size(66, 38);
+            this.clinicRecordDateMonth.TabIndex = 60;
+            // 
+            // clinicRecordDateDay
+            // 
+            this.clinicRecordDateDay.Location = new System.Drawing.Point(1992, 1349);
+            this.clinicRecordDateDay.Name = "clinicRecordDateDay";
+            this.clinicRecordDateDay.Size = new System.Drawing.Size(66, 38);
+            this.clinicRecordDateDay.TabIndex = 59;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3460, 1419);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(227, 32);
+            this.label7.TabIndex = 65;
+            this.label7.Text = "¿Es una cirugía?";
+            // 
+            // yesSurgeryRb
+            // 
+            this.yesSurgeryRb.AutoSize = true;
+            this.yesSurgeryRb.Location = new System.Drawing.Point(3508, 1495);
+            this.yesSurgeryRb.Name = "yesSurgeryRb";
+            this.yesSurgeryRb.Size = new System.Drawing.Size(78, 36);
+            this.yesSurgeryRb.TabIndex = 66;
+            this.yesSurgeryRb.TabStop = true;
+            this.yesSurgeryRb.Text = "Si";
+            this.yesSurgeryRb.UseVisualStyleBackColor = true;
+            this.yesSurgeryRb.Click += new System.EventHandler(this.yesSurgeryRb_Click);
+            // 
+            // noSurgeryRb
+            // 
+            this.noSurgeryRb.AutoSize = true;
+            this.noSurgeryRb.Location = new System.Drawing.Point(3508, 1586);
+            this.noSurgeryRb.Name = "noSurgeryRb";
+            this.noSurgeryRb.Size = new System.Drawing.Size(88, 36);
+            this.noSurgeryRb.TabIndex = 67;
+            this.noSurgeryRb.TabStop = true;
+            this.noSurgeryRb.Text = "No";
+            this.noSurgeryRb.UseVisualStyleBackColor = true;
+            this.noSurgeryRb.Click += new System.EventHandler(this.noSurgeryRb_Click);
+            // 
             // MedicFiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -337,10 +419,18 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(3824, 2062);
+            this.Controls.Add(this.noSurgeryRb);
+            this.Controls.Add(this.yesSurgeryRb);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.clinicRecordDateYear);
+            this.Controls.Add(this.clinicRecordDateMonth);
+            this.Controls.Add(this.clinicRecordDateDay);
             this.Controls.Add(this.deleteClinicalRecordBtn);
             this.Controls.Add(this.addClinicRecordBtn);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.clinicRecordDatePicker);
+            this.Controls.Add(this.clinicRecordLabel);
             this.Controls.Add(this.clinicRecordTextBox);
             this.Controls.Add(this.clinicRecordsDataGridView);
             this.Controls.Add(this.label5);
@@ -388,9 +478,17 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView clinicRecordsDataGridView;
         private System.Windows.Forms.TextBox clinicRecordTextBox;
-        private System.Windows.Forms.DateTimePicker clinicRecordDatePicker;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label clinicRecordLabel;
         private System.Windows.Forms.Button addClinicRecordBtn;
         private System.Windows.Forms.Button deleteClinicalRecordBtn;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox clinicRecordDateYear;
+        private System.Windows.Forms.TextBox clinicRecordDateMonth;
+        private System.Windows.Forms.TextBox clinicRecordDateDay;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RadioButton yesSurgeryRb;
+        private System.Windows.Forms.RadioButton noSurgeryRb;
     }
 }
