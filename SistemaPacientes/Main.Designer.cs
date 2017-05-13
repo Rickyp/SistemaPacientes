@@ -37,7 +37,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(371, 103);
+            this.button1.Location = new System.Drawing.Point(371, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(290, 54);
             this.button1.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(371, 237);
+            this.button2.Location = new System.Drawing.Point(371, 167);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(290, 54);
             this.button2.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             // createBackupBtn
             // 
-            this.createBackupBtn.Location = new System.Drawing.Point(371, 605);
+            this.createBackupBtn.Location = new System.Drawing.Point(371, 532);
             this.createBackupBtn.Name = "createBackupBtn";
             this.createBackupBtn.Size = new System.Drawing.Size(290, 54);
             this.createBackupBtn.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // restoreBackupBtn
             // 
-            this.restoreBackupBtn.Location = new System.Drawing.Point(371, 707);
+            this.restoreBackupBtn.Location = new System.Drawing.Point(371, 634);
             this.restoreBackupBtn.Name = "restoreBackupBtn";
             this.restoreBackupBtn.Size = new System.Drawing.Size(290, 54);
             this.restoreBackupBtn.TabIndex = 3;
@@ -77,7 +77,7 @@
             // 
             // ClinicRecordSummaryBtn
             // 
-            this.ClinicRecordSummaryBtn.Location = new System.Drawing.Point(371, 366);
+            this.ClinicRecordSummaryBtn.Location = new System.Drawing.Point(371, 296);
             this.ClinicRecordSummaryBtn.Name = "ClinicRecordSummaryBtn";
             this.ClinicRecordSummaryBtn.Size = new System.Drawing.Size(290, 54);
             this.ClinicRecordSummaryBtn.TabIndex = 4;

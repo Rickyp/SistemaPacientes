@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -95,7 +95,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 1647);
+            this.button1.Location = new System.Drawing.Point(12, 1566);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(223, 68);
             this.button1.TabIndex = 0;
@@ -157,7 +157,7 @@
             // searchPhoto
             // 
             this.searchPhoto.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.searchPhoto.Location = new System.Drawing.Point(428, 1330);
+            this.searchPhoto.Location = new System.Drawing.Point(428, 1260);
             this.searchPhoto.Name = "searchPhoto";
             this.searchPhoto.Size = new System.Drawing.Size(234, 91);
             this.searchPhoto.TabIndex = 9;
@@ -168,7 +168,7 @@
             // photoLabel
             // 
             this.photoLabel.AutoSize = true;
-            this.photoLabel.Location = new System.Drawing.Point(752, 1354);
+            this.photoLabel.Location = new System.Drawing.Point(662, 1194);
             this.photoLabel.Name = "photoLabel";
             this.photoLabel.Size = new System.Drawing.Size(0, 32);
             this.photoLabel.TabIndex = 10;
@@ -176,7 +176,7 @@
             // removePhoto
             // 
             this.removePhoto.BackColor = System.Drawing.SystemColors.Control;
-            this.removePhoto.Location = new System.Drawing.Point(428, 1452);
+            this.removePhoto.Location = new System.Drawing.Point(428, 1382);
             this.removePhoto.Name = "removePhoto";
             this.removePhoto.Size = new System.Drawing.Size(234, 91);
             this.removePhoto.TabIndex = 11;
@@ -353,7 +353,7 @@
             // createPatient
             // 
             this.createPatient.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.createPatient.Location = new System.Drawing.Point(1534, 1391);
+            this.createPatient.Location = new System.Drawing.Point(1429, 1324);
             this.createPatient.Name = "createPatient";
             this.createPatient.Size = new System.Drawing.Size(234, 91);
             this.createPatient.TabIndex = 34;
@@ -365,8 +365,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.ColumnHeadersVisible = false;
             this.dataGridView1.Location = new System.Drawing.Point(102, 200);
@@ -494,7 +494,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(734, 1401);
+            this.pictureBox1.Location = new System.Drawing.Point(786, 1260);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(365, 374);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -603,7 +603,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(3610, 2088);
+            this.ClientSize = new System.Drawing.Size(3399, 1848);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);

@@ -26,7 +26,8 @@ namespace SistemaPacientes
             InitializeComponent();
             connectionString = ConfigurationManager.ConnectionStrings["SistemaPacientes.Properties.Settings.DatabaseConnectionString"].ConnectionString;
             dbName = System.Windows.Forms.Application.StartupPath + "\\Database.mdf";
-
+            Debug.WriteLine(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width);
+            Debug.WriteLine(System.Windows.Forms.Screen.PrimaryScreen.Bounds.Height);
         }
 
         private void button1_Click(object sender, EventArgs e)

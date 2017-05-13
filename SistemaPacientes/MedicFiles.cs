@@ -101,6 +101,7 @@ namespace SistemaPacientes
                     filesDataTable = new DataTable();
                     sqlDataAdapter.Fill(filesDataTable);
                     filesDataGridView.DataSource = filesDataTable;
+                    filesDataGridView.Columns[0].Visible = false;
                     filesDataGridView.Columns[1].HeaderText = "Nombre";
                     filesDataGridView.Columns[2].HeaderText = "Fecha";
                     filesDataGridView.Columns[3].Visible = false;
@@ -147,17 +148,17 @@ namespace SistemaPacientes
         private void filesDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             int totalHeight;
-            int totalWidth;
+            int totalWidth = filesDataGridView.Columns[1].Width + filesDataGridView.Columns[2].Width;
             if (filesDataGridView.RowCount < 6)
             {
                 totalHeight = filesDataGridView.Rows.GetRowsHeight(DataGridViewElementStates.None) + filesDataGridView.ColumnHeadersHeight + 3;
-                totalWidth = filesDataGridView.Columns[0].Width + filesDataGridView.Columns[1].Width + filesDataGridView.Columns[2].Width + 3;
+                totalWidth += 3;
 
             }
             else
             {
                 totalHeight = (filesDataGridView.Rows[0].Height * 6) + filesDataGridView.ColumnHeadersHeight + 3;
-                totalWidth = filesDataGridView.Columns[0].Width + filesDataGridView.Columns[1].Width + filesDataGridView.Columns[2].Width + 20;
+                totalWidth += 20;
             }
 
 
@@ -230,7 +231,7 @@ namespace SistemaPacientes
             if (openFile.ShowDialog() == DialogResult.OK)
             {
                 filebytes = File.ReadAllBytes(openFile.FileName);
-                fileLabel.Text = "Se seleccionó el archivo " + openFile.SafeFileName;
+                fileLabel.Text = "Archivo: " + openFile.SafeFileName;
                 fileExtension = Path.GetExtension(openFile.SafeFileName);
             }
         }

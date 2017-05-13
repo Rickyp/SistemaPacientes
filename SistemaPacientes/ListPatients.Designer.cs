@@ -51,6 +51,7 @@
             this.diseaseDataGridView = new System.Windows.Forms.DataGridView();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.deletePatientBtn = new System.Windows.Forms.Button();
             this.viewProfileBtn = new System.Windows.Forms.Button();
             this.patientDiseaseDataGridView = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.deletePatientBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsDataGridView)).BeginInit();
@@ -74,7 +74,7 @@
             // 
             // returnBtn
             // 
-            this.returnBtn.Location = new System.Drawing.Point(35, 1244);
+            this.returnBtn.Location = new System.Drawing.Point(35, 1534);
             this.returnBtn.Name = "returnBtn";
             this.returnBtn.Size = new System.Drawing.Size(223, 68);
             this.returnBtn.TabIndex = 1;
@@ -264,13 +264,23 @@
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Location = new System.Drawing.Point(2508, 33);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1276, 1685);
+            this.groupBox2.Size = new System.Drawing.Size(1129, 1538);
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
             // 
+            // deletePatientBtn
+            // 
+            this.deletePatientBtn.Location = new System.Drawing.Point(812, 1384);
+            this.deletePatientBtn.Name = "deletePatientBtn";
+            this.deletePatientBtn.Size = new System.Drawing.Size(248, 95);
+            this.deletePatientBtn.TabIndex = 51;
+            this.deletePatientBtn.Text = "Borrar Paciente";
+            this.deletePatientBtn.UseVisualStyleBackColor = true;
+            this.deletePatientBtn.Click += new System.EventHandler(this.deletePatientBtn_Click);
+            // 
             // viewProfileBtn
             // 
-            this.viewProfileBtn.Location = new System.Drawing.Point(389, 1559);
+            this.viewProfileBtn.Location = new System.Drawing.Point(384, 1399);
             this.viewProfileBtn.Name = "viewProfileBtn";
             this.viewProfileBtn.Size = new System.Drawing.Size(225, 65);
             this.viewProfileBtn.TabIndex = 49;
@@ -286,7 +296,7 @@
             this.patientDiseaseDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.patientDiseaseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patientDiseaseDataGridView.ColumnHeadersVisible = false;
-            this.patientDiseaseDataGridView.Location = new System.Drawing.Point(528, 938);
+            this.patientDiseaseDataGridView.Location = new System.Drawing.Point(523, 876);
             this.patientDiseaseDataGridView.Name = "patientDiseaseDataGridView";
             this.patientDiseaseDataGridView.ReadOnly = true;
             this.patientDiseaseDataGridView.RowHeadersVisible = false;
@@ -300,7 +310,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(518, 858);
+            this.label5.Location = new System.Drawing.Point(513, 796);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(299, 58);
             this.label5.TabIndex = 49;
@@ -308,7 +318,7 @@
             // 
             // patientFilesButton
             // 
-            this.patientFilesButton.Location = new System.Drawing.Point(53, 1559);
+            this.patientFilesButton.Location = new System.Drawing.Point(48, 1399);
             this.patientFilesButton.Name = "patientFilesButton";
             this.patientFilesButton.Size = new System.Drawing.Size(248, 95);
             this.patientFilesButton.TabIndex = 48;
@@ -320,7 +330,7 @@
             // 
             this.ageLabel.AutoSize = true;
             this.ageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ageLabel.Location = new System.Drawing.Point(200, 858);
+            this.ageLabel.Location = new System.Drawing.Point(195, 796);
             this.ageLabel.Name = "ageLabel";
             this.ageLabel.Size = new System.Drawing.Size(169, 58);
             this.ageLabel.TabIndex = 47;
@@ -340,7 +350,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(43, 858);
+            this.label4.Location = new System.Drawing.Point(38, 796);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 58);
             this.label4.TabIndex = 45;
@@ -365,23 +375,13 @@
             this.pictureBox1.TabIndex = 44;
             this.pictureBox1.TabStop = false;
             // 
-            // deletePatientBtn
-            // 
-            this.deletePatientBtn.Location = new System.Drawing.Point(986, 1544);
-            this.deletePatientBtn.Name = "deletePatientBtn";
-            this.deletePatientBtn.Size = new System.Drawing.Size(248, 95);
-            this.deletePatientBtn.TabIndex = 51;
-            this.deletePatientBtn.Text = "Borrar Paciente";
-            this.deletePatientBtn.UseVisualStyleBackColor = true;
-            this.deletePatientBtn.Click += new System.EventHandler(this.deletePatientBtn_Click);
-            // 
             // ListPatients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(3824, 2088);
+            this.ClientSize = new System.Drawing.Size(3399, 1848);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox3);
